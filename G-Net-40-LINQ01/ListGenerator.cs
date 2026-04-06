@@ -1,0 +1,48 @@
+﻿using System.Collections.Generic;
+
+namespace G_Net_40_LINQ01
+{
+    public static class ListGenerator
+    {
+        public static List<Product> ProductList { get; set; } = new List<Product>
+        {
+            new Product { Id=1, Name="Laptop", Category="Electronics", Price=1200, Stock=10 },
+            new Product { Id=2, Name="Phone", Category="Electronics", Price=800, Stock=25 },
+            new Product { Id=3, Name="T-Shirt", Category="Clothing", Price=30, Stock=100 },
+            new Product { Id=4, Name="Jeans", Category="Clothing", Price=60, Stock=50 },
+            new Product { Id=5, Name="Chocolate", Category="Food", Price=5, Stock=200 },
+            new Product { Id=6, Name="Coffee Beans", Category="Food", Price=15, Stock=80 },
+            new Product { Id=7, Name="C# Book", Category="Books", Price=45, Stock=30 },
+            new Product { Id=8, Name="Novel", Category="Books", Price=20, Stock=60 },
+            new Product { Id=9, Name="Headphones", Category="Electronics", Price=150, Stock=40 },
+            new Product { Id=10, Name="Jacket", Category="Clothing", Price=120, Stock=15 }
+        };
+
+        public static List<Customer> CustomerList { get; set; } = new List<Customer>();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public double Price { get; set; }
+        public int Stock { get; set; }
+        public string ProductName => Name;
+        public double UnitPrice => Price;
+        public int UnitsInStock => Stock;
+    }
+    public class Customer
+    {
+        public string CustomerID { get; set; }
+        public string CustomerName { get; set; }
+        public List<Order> Orders { get; set; } = new List<Order>();
+    }
+
+    public class Order
+    {
+        public int OrderID { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal Total { get; set; }
+    }
+}
